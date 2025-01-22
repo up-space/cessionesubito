@@ -171,7 +171,7 @@ export default function CessioneQuinto() {
                   onChange={handleTabChange}
                   className="bg-white/10 backdrop-blur-md p-2 rounded-[2rem] shadow-xl border border-white/20
                            hover:shadow-2xl transition-shadow duration-500
-                           [&_button]:shadow-lg [&_button]:border [&_button]:border-white/20"
+                           [&_button]:shadow-lg [&_button]:border [&_button]:border-white/30"
                 />
               </motion.div>
             </div>
