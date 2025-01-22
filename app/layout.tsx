@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { DM_Sans } from 'next/font/google';
-
+import { Analytics } from "@vercel/analytics/react"
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-dm-sans',
@@ -40,7 +40,9 @@ export default function RootLayout({
     <html lang="it" className={dmSans.variable}>
       <body className="antialiased">
         {children}
+        <Analytics />
       </body>
+      
     </html>
   );
 }
