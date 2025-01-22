@@ -52,9 +52,10 @@ export default function Home() {
       </div>
 
       
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {/* Hero Section - First screen */}
         <motion.section 
+          key="hero-section"
           className="h-screen snap-start snap-always overflow-hidden"
           variants={sectionVariants}
           initial="hidden"
@@ -67,6 +68,7 @@ export default function Home() {
 
         {/* Quotation Section - Second screen */}
         <motion.section 
+          key="quotation-section"
           className="h-screen snap-start snap-always overflow-hidden"
           variants={sectionVariants}
           initial="hidden"
@@ -79,6 +81,7 @@ export default function Home() {
 
         {/* Products Section - Third screen */}
         <motion.section 
+          key="products-section"
           className="h-screen snap-start snap-always overflow-hidden"
           variants={sectionVariants}
           initial="hidden"
@@ -91,6 +94,7 @@ export default function Home() {
 
         {/* Features Section - Fourth screen */}
         <motion.section 
+          key="features-section"
           className="h-screen snap-start snap-always overflow-hidden"
           variants={sectionVariants}
           initial="hidden"
@@ -103,6 +107,7 @@ export default function Home() {
 
         {/* Not Found Section - Fifth screen */}
         <motion.section 
+          key="not-found-section"
           className="h-screen snap-start snap-always overflow-hidden"
           variants={sectionVariants}
           initial="hidden"
@@ -115,6 +120,7 @@ export default function Home() {
 
         {/* Footer Section - Sixth screen */}
         <motion.section 
+          key="footer-section"
           className="h-screen snap-start snap-always overflow-hidden"
           variants={sectionVariants}
           initial="hidden"
