@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { adminTemplate, userTemplate } from '../send-email/route';
+import { adminTemplate, userTemplate } from '@/app/lib/emailTemplates';
 
 const sampleData = {
   name: "Mario Rossi",
