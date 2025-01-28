@@ -4,9 +4,9 @@ import { COMPANY_INFO } from '../lib/constants';
 
 const footerLinks = {
   prodotti: [
-    { name: 'Cessione del quinto', href: '/cessione-del-quinto' },
-    { name: 'Delegazione di pagamento', href: '/delegazione-di-pagamento' },
-    { name: 'Prestiti in convenzione', href: '/prestiti-in-convenzione' },
+    { name: 'Cessione del quinto', href: '/cessione-quinto' },
+    { name: 'Delegazione di pagamento', href: '/prestiti-delega' },
+    { name: 'Prestiti in convenzione', href: '/prestiti-convenzione' },
   ],
   azienda: [
     { name: 'Chi siamo', href: '/chi-siamo' },
