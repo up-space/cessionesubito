@@ -18,7 +18,7 @@ export default function Home() {
       {[Hero, Quotation, Products, Features, NotFound, Footer].map((Component, index) => (
         <section 
           key={`section-${index}`}
-          className="h-screen"
+          
         >
           <div>
             <Component />

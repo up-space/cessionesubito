@@ -9,14 +9,14 @@ export default function NotFound() {
             
             {/* Content */}
             <div className="relative">
-                <h1 className="text-6xl md:text-7xl font-bold mb-6">
-                    <span className="text-[#40BFEF]">Se non hai trovato</span>
+                <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                    <span className="text-[#40BFEF]">Non hai trovato</span>
                     <br />
-                    <span className="text-[#003B7E]">ciò che cercavi</span>
+                    <span className="text-[#003B7E]">ciò che cercavi?</span>
                 </h1>
                 
                 <p className="text-[#003B7E]/80 max-w-3xl mb-10 text-lg">
-                    Contattaci per scoprire le diverse soluzioni di credito disponibili per te! Oltre alla cessione del quinto siamo anche in grado di offrirti un'ampia gamma di prestiti personali e finanziamenti su misura per te!
+                    Contattaci per scoprire le diverse soluzioni di credito disponibili. <br/> Oltre alla cessione del quinto ti forniamo un'ampia gamma di prestiti personali e finanziamenti su misura per te!
                 </p>
 
                 <Link href="/contatti">

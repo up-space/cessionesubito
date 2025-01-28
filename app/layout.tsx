@@ -3,6 +3,7 @@ import "./globals.css";
 import { DM_Sans } from 'next/font/google';
 import { Analytics } from "@vercel/analytics/react"
 import CookieBanner from './components/shared/CookieBanner';
+import { COMPANY_INFO } from './lib/constants';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -10,8 +11,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Cessione Subito - Il tuo prestito veloce",
-  description: "Ottieni un prestito veloce e conveniente con Cessione Subito. Soluzioni finanziarie su misura per te.",
+  title: COMPANY_INFO.name,
+  description: `${COMPANY_INFO.name} - ${COMPANY_INFO.legalInfo.slice(0, 155)}...`,
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -39,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" className={dmSans.variable}>
+    <html lang="it" className={dmSans.variable} >
       <body className="antialiased">
         {children}
         <Analytics />

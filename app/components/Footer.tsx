@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { COMPANY_INFO } from '../lib/constants';
 
 const footerLinks = {
   prodotti: [
@@ -13,8 +14,8 @@ const footerLinks = {
     { name: 'Contatti', href: '/contatti' },
   ],
   contatti: [
-    { name: '+39 800 893 592', href: 'tel:+39800893592' },
-    { name: 'info@cessionesubito.it', href: 'mailto:info@cessionesubito.it' },
+    { name: COMPANY_INFO.phone, href: `tel:${COMPANY_INFO.phone}` },
+    { name: COMPANY_INFO.email, href: `mailto:${COMPANY_INFO.email}` },
   ],
   normativa: [
     { name: 'Privacy Policy', href: '/privacy-policy' },

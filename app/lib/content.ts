@@ -2,7 +2,7 @@
 export const chiSiamoContent = {
   hero: {
     title: {
-      main: "Il tuo prestito veloce con",
+      main: "Il tuo prestito con",
       highlight: "CessioneSubito"
     },
     subtitle: "Soluzioni di finanziamento su misura per te",

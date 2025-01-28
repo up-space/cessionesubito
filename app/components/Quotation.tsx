@@ -3,6 +3,7 @@
 import { useState, useCallback, memo, useRef, useMemo } from 'react'; // Import useRef and useMemo
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
+import { COMPANY_INFO } from '../lib/constants';
 
 const amounts = ['5.000', '10.000', '15.000', '20.000', '25.000', '30.000'];
 const professions = ['Dipendente', 'Pensionato', 'Autonomo'];
@@ -41,7 +42,7 @@ const FormInputs = memo(({ formData, handleInputChange }: {
           value={formData.name}
           onChange={handleInputChange}
           placeholder="Nome e Cognome"
-          className="w-full p-3 md:p-4 rounded-full text-sm md:text-base border border-white/40 bg-white/80 backdrop-blur-sm focus:border-[#40BFEF] focus:ring-2 focus:ring-[#40BFEF]/20 outline-none transition-all shadow-[0_2px_8px_rgba(64,191,239,0.05)] focus:shadow-[0_2px_12px_rgba(64,191,239,0.15)]"
+          className="w-full p-3 md:p-4 rounded-full text-sm md:text-base border border-white/40 bg-white/80 backdrop-blur-sm focus:border-[#40BFEF] focus:ring-2 focus:ring-[#40BFEF]/20 outline-none transition-all "
           required
         />
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#40BFEF]/10 to-white/5 pointer-events-none" />
@@ -261,7 +262,7 @@ const FormContent = memo(({
                 <Button
                   text="Invia la richiesta"
                   onClick={handleSubmit}
-                  className={`w-full sm:w-auto relative overflow-hidden ${isSubmitting ? 'cursor-not-allowed' : ''}`}
+                  className={`w-full sm:w-auto relative overflow-hidden text-base px-8 py-4 ${isSubmitting ? 'cursor-not-allowed' : ''}`}
                   disabled={!formData.name || !formData.email || !formData.phone || !formData.privacy || isSubmitting}
                 >
                   <AnimatePresence mode="wait">
@@ -390,7 +391,7 @@ export default function Quotation() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'vittorio@upspace.tech',
+          to: COMPANY_INFO.email,
           subject: 'Nuova richiesta di preventivo',
           formData: {
             ...formData,
@@ -413,32 +414,32 @@ export default function Quotation() {
   }, [formData, amount, profession]);
 
   return (
-    <section className="w-full min-h-[calc(100vh-4rem)] sm:min-h-screen relative pt-20 sm:pt-0">
-      <div className="absolute inset-0 bg-gray-100">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#40BFEF]/20 via-transparent to-[#40BFEF]/10" />
+    <section className="w-full min-h-[40vh] sm:min-h-screen relative pt-16 sm:pt-0 pb-16">
+      <div className="absolute inset-0 bg-gray-100 h-full">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#40BFEF]/20 via-transparent to-[#40BFEF]/10 h-full" />
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl min-h-[calc(100vh-4rem)] sm:min-h-screen flex items-center">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-12 lg:gap-16 w-full items-center">
+      <div className="relative container mx-auto px-4 sm:px-6 md:px-12 py-8 md:py-12 max-w-7xl min-h-[40vh] sm:min-h-screen flex items-start sm:items-center">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-12 lg:gap-16 w-full items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="md:sticky md:top-1/3 h-fit md:-translate-y-1/2 text-center md:text-left"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium leading-tight max-w-2xl mx-auto md:mx-0">
-              <span className="text-[#40BFEF] block mb-1">Richiedi adesso</span>
+            <h1 className="text-4xl xs:text-5xl sm:text-5xl md:text-6xl font-medium leading-tight max-w-2xl mx-auto md:mx-0">
+              <span className="text-[#40BFEF] block mb-3 md:mb-0">Richiedi adesso</span>
               <span className="text-[#003B7E] block">il tuo preventivo.</span>
             </h1>
-            <p className="text-gray-600 text-md mt-8 w-full md:w-3/4 text-center md:text-left">
+            <p className="text-gray-600 text-base md:text-lg mt-6 w-full md:w-3/4 text-center md:text-left">
               La richiesta è semplice, gratuita e senza impegno. Basta inserire
               i dati nel nostro breve modulo di richiesta: i dati saranno poi elaborati dal nostro
               staff e il tuo consulente personale ti ricontatterà in breve tempo.
             </p>
-            <div className="md:hidden mt-8">
+            <div className="md:hidden mt-6 flex justify-center">
               <Button
-                text="Richiedi un preventivo"
+                text="Richiedi"
                 onClick={() => setIsPopupOpen(true)}
-                className="w-full"
+                className="px-6 py-3 text-base max-w-sm"
               />
             </div>
           </motion.div>
@@ -447,7 +448,7 @@ export default function Quotation() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="hidden md:block bg-white/30 backdrop-blur-xl rounded-[2.5rem] p-8 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/20 relative max-w-xl mx-auto w-full"
+            className="hidden md:block bg-white/30 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-10 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/20 relative max-w-xl mx-auto w-full"
           >
             <FormContent 
               step={step}
@@ -479,11 +480,7 @@ export default function Quotation() {
 
             <div className="fixed inset-0 top-16 flex flex-col items-center justify-center z-50 md:hidden px-4">
               <motion.div
-                variants={slideIn}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-6 pb-8 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/20 w-full max-w-lg max-h-[calc(75vh-4rem)] overflow-y-auto hide-scrollbar"
+                className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-6 pb-8 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/20 w-full max-w-md max-h-[70vh] overflow-y-auto hide-scrollbar"
               >
                 <FormContent 
                   step={step}
@@ -500,15 +497,10 @@ export default function Quotation() {
                 />
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="mt-6 mb-safe"
-              >
+              <motion.div className="mt-6 mb-safe">
                 <button
                   onClick={() => setIsPopupOpen(false)}
-                  className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-xl shadow-lg hover:bg-white/90 transition-all hover:scale-105 flex items-center justify-center"
+                  className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-xl shadow-lg hover:bg-white/90 transition-all"
                 >
                   <svg className="w-7 h-7 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
