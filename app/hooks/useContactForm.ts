@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FormData } from '../types/contact';
+import { COMPANY_INFO } from '../lib/constants';
 
 const initialFormData: FormData = {
   name: '',
@@ -26,7 +27,11 @@ export const useContactForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          to: COMPANY_INFO.email,
+          subject: 'Nuovo messaggio dal sito web',
+          formData: formData
+        }),
       });
 
       if (!response.ok) {

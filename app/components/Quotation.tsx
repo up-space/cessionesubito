@@ -415,7 +415,7 @@ export default function Quotation() {
 
   return (
     <section className="w-full min-h-[40vh] sm:min-h-screen relative pt-16 sm:pt-0 pb-16">
-      <div className="absolute inset-0 bg-gray-100 h-full">
+      <div className="absolute inset-0  h-full">
         <div className="absolute inset-0 bg-gradient-to-b from-[#40BFEF]/20 via-transparent to-[#40BFEF]/10 h-full" />
       </div>
 

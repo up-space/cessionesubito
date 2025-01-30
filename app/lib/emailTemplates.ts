@@ -274,4 +274,39 @@ export const userTemplate = (formData: any) => `
       </div>
     </body>
   </html>
+`;
+
+// Add new template for contact form submissions
+export const contactAdminTemplate = (formData: any) => `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <style>
+      /* Add contact-specific email styles */
+      .message-content { padding: 20px; background: #f5f5f5; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Nuovo messaggio da ${formData.name}</h2>
+      <div class="message-content">
+        <p>Email: ${formData.email}</p>
+        <p>Telefono: ${formData.phone}</p>
+        <p>Messaggio: ${formData.message}</p>
+      </div>
+    </div>
+  </body>
+  </html>
+`;
+
+export const contactUserTemplate = () => `
+  <!DOCTYPE html>
+  <html>
+  <body>
+    <div class="container">
+      <h2>Grazie per averci contattato</h2>
+      <p>Il nostro team ti risponderà entro 24 ore lavorative.</p>
+    </div>
+  </body>
+  </html>
 `; 
