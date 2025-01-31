@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Button from "./Button";
 import Link from "next/link";
-import Image from "next/image";
+import { OptimizedImage } from './ui/optimized-image';
 
 const navLinks = [
     { href: '/chi-siamo', text: 'Chi Siamo' },
@@ -40,7 +40,7 @@ export default function Navbar() {
                 }`}>
                     {/* Logo */}
                     <Link href="/" className="flex items-center text-black px-4 transition-transform duration-300 hover:scale-105" aria-label="Homepage">
-                        <Image src="/full-logo.png" alt="Cessione Subito Logo" width={132} height={132} className="w-36" />
+                        <OptimizedImage src="/full-logo.png" alt="Cessione Subito Logo" width={132} height={132} className="w-36" />
                     </Link>
 
                     {/* Navigation Links */}
@@ -76,7 +76,7 @@ export default function Navbar() {
                     </div>
 
                     <Link href="/" className="flex items-center justify-center px-4 py-3.5" aria-label="Homepage">
-                        <Image src="/full-logo.png" alt="Cessione Subito Logo" width={132} height={132} className="w-32" />
+                        <OptimizedImage src="/full-logo.png" alt="Cessione Subito Logo" width={132} height={132} className="w-32" />
                     </Link>
 
                     <button 

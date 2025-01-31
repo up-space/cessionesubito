@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { OptimizedImage } from '../components/ui/optimized-image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import QuotationSection from '../components/shared/QuotationSection';
@@ -72,12 +72,13 @@ export default function PrestitiDelega() {
                         animate="visible"
                     >
                         <div className="relative h-full rounded-b-[3rem] overflow-hidden shadow-2xl">
-                            <Image
+                            <OptimizedImage
                                 src={hero.imageSrc}
                                 alt="Hero background"
                                 fill
                                 className="object-cover"
                                 priority
+                                sizes="100vw"
                             />
                             {/* Enhanced gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40" />

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { OptimizedImage } from './components/ui/optimized-image';
 import Link from 'next/link';
 
 export default function NotFound() {
@@ -15,12 +15,14 @@ export default function NotFound() {
       >
         <div className="mb-8">
           <Link href="/" className="inline-block">
-            <Image
+            <OptimizedImage
               src="/full-logo.png"
               alt="CessioneSubito"
               width={180}
               height={60}
               className="h-14 w-auto"
+              priority
+              sizes="180px"
             />
           </Link>
         </div>

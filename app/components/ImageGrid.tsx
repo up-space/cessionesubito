@@ -1,14 +1,14 @@
 'use client';
 
 import { motion, useAnimationControls } from 'framer-motion';
-import Image from 'next/image';
 import { memo, useCallback, useEffect, useMemo } from 'react';
+import { OptimizedImage } from '../components/ui/optimized-image';
 
 const images = [
-  '/homepage/feature-1.jpg',
-  '/homepage/feature-2.jpg',
-  '/homepage/feature-3.jpg',
-  '/homepage/feature-4.jpg',
+  '/feature-1.jpg',
+  '/feature-2.jpg',
+  '/feature-3.jpg',
+  '/feature-4.jpg',
 ] as const;
 
 const cardVariants = {
@@ -52,7 +52,7 @@ const GridItem = memo(({ src, index }: { src: string; index: number }) => (
                 border border-white/30 
                 transition-all duration-300 
                 hover:shadow-xl hover:shadow-black/[0.05] hover:border-white/40">
-      <Image
+      <OptimizedImage
         src={src}
         alt={`Feature ${index % 4 + 1}`}
         fill

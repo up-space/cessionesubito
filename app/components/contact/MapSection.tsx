@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image';
+import { OptimizedImage } from '../ui/optimized-image';
 import { Content } from '../../types/contact';
 
 interface MapSectionProps {
@@ -14,11 +14,12 @@ export default function MapSection({ content }: MapSectionProps) {
         {content.title}
       </h2>
       <div className="relative h-[300px] rounded-[24px] overflow-hidden">
-        <Image
+        <OptimizedImage
           src={content.imageSrc}
           alt={content.imageAlt}
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, 600px"
         />
       </div>
     </div>

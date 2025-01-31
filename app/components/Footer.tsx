@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { OptimizedImage } from './ui/optimized-image';
 import { COMPANY_INFO } from '../lib/constants';
 
 const footerLinks = {
@@ -31,7 +31,7 @@ export default function Footer() {
       <div className="w-full">
         <div className="container mx-auto max-w-7xl px-4 md:px-6 mb-4 md:mb-6">
           <div className="bg-white/80 backdrop-blur-xl rounded-2xl md:rounded-[2rem] py-8 md:py-12 flex justify-center items-center">
-            <Image
+            <OptimizedImage
               src="/full-logo.png"
               alt="Cessione Subito"
               width={800}

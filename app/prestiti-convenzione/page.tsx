@@ -3,7 +3,7 @@
 'use client'
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { OptimizedImage } from '../components/ui/optimized-image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import QuotationSection from '../components/shared/QuotationSection';
@@ -108,12 +108,13 @@ export default function PrestitiConvenzione() {
                         animate="visible"
                     >
                         <div className="relative h-full rounded-b-[3rem] overflow-hidden shadow-2xl">
-                            <Image
+                            <OptimizedImage
                                 src={loanTypes.find(loan => loan.id === activeTab)?.image || '/inps.jpg'}
                                 alt="Hero background"
                                 fill
                                 className="object-cover"
                                 priority
+                                sizes="100vw"
                             />
                             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/40" />
                             <motion.div

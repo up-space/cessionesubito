@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { OptimizedImage } from '../ui/optimized-image';
 
 interface ImageSectionProps {
   imageSrc: string;
@@ -52,12 +52,13 @@ export default function ImageSection({
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <Image
+        <OptimizedImage
           src={imageSrc}
           alt={title || 'Section image'}
           fill
           className={`object-cover rounded-3xl ${imageClassName}`}
           priority
+          sizes="(max-width: 768px) 100vw, 90vw"
         />
         
         {(title || subtitle) && (

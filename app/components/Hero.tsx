@@ -1,10 +1,10 @@
 'use client'
 
-import Image from "next/image";
 import Button from "./Button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { memo, useEffect, useState } from 'react';
+import { OptimizedImage } from "./ui/optimized-image";
 
 const imageVariants = {
   hidden: { opacity: 0, x: -100 },
@@ -47,8 +47,8 @@ GradientOverlay.displayName = 'GradientOverlay';
 
 const HeroImage = memo(({ isMobile = false }: { isMobile?: boolean }) => (
   <div className="relative w-full h-full overflow-hidden">
-    <Image 
-      src="/homepage/big-favicon.png" 
+    <OptimizedImage 
+      src="/big-favicon.png" 
       alt="Decorative circles" 
       fill 
       className={`transition-transform duration-700 ${
@@ -58,7 +58,6 @@ const HeroImage = memo(({ isMobile = false }: { isMobile?: boolean }) => (
       }`}
       priority
       sizes={isMobile ? "(max-width: 768px) 280px" : "(max-width: 768px) 100vw, 66vw"}
-      loading="eager"
       quality={85}
     />
   </div>

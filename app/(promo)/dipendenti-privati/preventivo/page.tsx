@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Euro, User } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { OptimizedImage } from '@/app/components/ui/optimized-image';
 import { useRouter } from 'next/navigation';
 import { useContactForm } from '@/app/hooks/useContactForm';
 import { COMPANY_INFO } from '@/app/lib/constants';
@@ -295,7 +295,7 @@ export default function QuotationPage() {
         {/* Logo Section */}
         <Card className="mt-8 p-6 bg-white/60 backdrop-blur-sm border-white/10">
           <div className="flex justify-center">
-            <Image
+            <OptimizedImage
               src="/full-logo.png"
               alt="CessioneSubito Logo"
               width={200}

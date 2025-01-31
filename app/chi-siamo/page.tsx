@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { OptimizedImage } from '../components/ui/optimized-image';
 import Button from '../components/Button';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -44,7 +44,7 @@ export default function ChiSiamo() {
         {/* Hero Section */}
         <section className="relative h-[70vh] min-h-[560px] flex items-end pb-16 rounded-b-3xl overflow-hidden">
           <div className="absolute inset-0">
-            <Image
+            <OptimizedImage
               src={hero.imageSrc}
               alt={hero.imageAlt}
               fill
@@ -122,22 +122,22 @@ export default function ChiSiamo() {
                     </p>
                   </div>
                   <div className="flex justify-center mt-8 h-48">
-  <a 
-    href={fidiline.logoLink}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="relative w-full  h-full block hover:scale-[1.02] transition-transform duration-300 bg-white rounded-3xl overflow-hidden"
-  >
-    <Image
-      src={fidiline.logoSrc}
-      alt={fidiline.logoAlt}
-      fill
-      className="object-contain"
-      sizes="(max-width: 768px) 50vw, 320px"
-    />
-  </a>
-</div>
-</div>
+                    <a 
+                      href={fidiline.logoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative w-full h-full block hover:scale-[1.02] transition-transform duration-300 bg-white rounded-3xl overflow-hidden"
+                    >
+                      <OptimizedImage
+                        src={fidiline.logoSrc}
+                        alt={fidiline.logoAlt}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 50vw, 320px"
+                      />
+                    </a>
+                  </div>
+                </div>
               </div>
               <div className="absolute inset-0 bg-noise opacity-10" />
             </motion.div>

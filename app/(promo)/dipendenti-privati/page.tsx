@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { containerVariants, itemVariants } from '../../constants/animations';
 import { Check, ArrowDown, Euro, Calendar, FileText, Percent, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import { OptimizedImage } from '../../components/ui/optimized-image';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -93,7 +93,7 @@ export default function PromoPage() {
                 className="relative w-full md:w-1/2 max-w-[600px] aspect-[1.1] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10" />
-                <Image
+                <OptimizedImage
                   src="/employee-promo.jpg"
                   alt="Dipendente che usa un telefono"
                   fill
