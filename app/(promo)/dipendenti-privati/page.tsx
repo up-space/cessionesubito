@@ -47,9 +47,7 @@ export default function PromoPage() {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
               {/* Text Content */}
               <div className="flex-1 space-y-6 text-center md:text-left">
-                <Badge variant="outline" className="mb-6 bg-white/10 border-white/20 backdrop-blur-sm hover:bg-white/20">
-                  <span className="text-xl font-semibold text-white">Finanziamento aziendale</span>
-                </Badge>
+
                 
                 <motion.h1
                   variants={itemVariants}
