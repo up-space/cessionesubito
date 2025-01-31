@@ -1,12 +1,12 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { containerVariants, itemVariants } from '../constants/animations';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { containerVariants, itemVariants } from '../../constants/animations';
 import { Check, ArrowDown, Euro, Calendar, FileText, Percent } from 'lucide-react';
 import Image from 'next/image';
-import QuotationSection from '../components/shared/QuotationSection';
+import QuotationSection from '../../components/shared/QuotationSection';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -140,7 +140,7 @@ export default function PromoPage() {
                   onClick={() => document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' })}
                   size="lg"
                   aria-label="Richiedi un preventivo gratuito"
-                  className="px-8 py-7 text-lg bg-[#003B7E] hover:bg-[#003B7E]/90 text-white rounded-full shadow-xl shadow-[#003B7E]/20 hover:scale-105 transition-all duration-500 group relative overflow-hidden"
+                  className="hidden md:inline-flex px-8 py-7 text-lg bg-[#003B7E] hover:bg-[#003B7E]/90 text-white rounded-full shadow-xl shadow-[#003B7E]/20 hover:scale-105 transition-all duration-500 group relative overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-2 [text-shadow:0_1px_2px_rgba(0,0,0,0.1)]">
                     Richiedi Preventivo Gratuito
@@ -153,13 +153,7 @@ export default function PromoPage() {
           </motion.div>
         </section>
 
-        {/* Quotation Section */}
-        <section id="form" className="relative bg-gradient-to-b from-white to-blue-50">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(64,191,239,0.1)_0%,transparent_100%)]" />
-          <div className="relative">
-            <QuotationSection />
-          </div>
-        </section>
+
       </main>
 
       <Footer />

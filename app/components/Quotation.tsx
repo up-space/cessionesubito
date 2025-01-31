@@ -500,7 +500,7 @@ export default function Quotation() {
               <motion.div className="mt-6 mb-safe">
                 <button
                   onClick={() => setIsPopupOpen(false)}
-                  className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-xl shadow-lg hover:bg-white/90 transition-all"
+                  className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-xl shadow-lg hover:bg-white/90 transition-all flex items-center justify-center"
                 >
                   <svg className="w-7 h-7 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

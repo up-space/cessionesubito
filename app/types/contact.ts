@@ -3,6 +3,7 @@ export interface FormData {
   email: string;
   phone: string;
   message: string;
+  privacy?: boolean;
 }
 
 export interface Content {

@@ -6,7 +6,8 @@ const initialFormData: FormData = {
   name: '',
   email: '',
   phone: '',
-  message: ''
+  message: '',
+  privacy: false
 };
 
 export const useContactForm = () => {
