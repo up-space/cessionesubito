@@ -68,7 +68,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Mobile Container */}
-                <div className={`md:hidden flex items-center justify-between text-black bg-white/80 backdrop-blur-xl rounded-full w-full max-w-[320px] transition-all duration-300 ${
+                <div className={`md:hidden flex items-center justify-between text-black bg-white/80 backdrop-blur-xl rounded-full w-full transition-all duration-300 ${
                     scrolled ? 'shadow-lg' : 'shadow-md'
                 }`}>
                     <div className="w-14 opacity-0" aria-hidden="true">
@@ -100,30 +100,41 @@ export default function Navbar() {
                 {isMenuOpen && (
                     <div 
                         id="mobile-menu"
-                        className="absolute top-[4.25rem] sm:top-[4.5rem] left-3 right-3 bg-white/95 backdrop-blur-xl shadow-lg rounded-2xl p-3 md:hidden transform-gpu transition-all duration-300 animate-slideDown"
+                        className="fixed top-0 left-0 right-0 bottom-0 bg-white/95 backdrop-blur-xl shadow-lg md:hidden transform-gpu transition-all duration-300 animate-slideDown"
                         role="menu"
                         aria-label="Mobile navigation"
                     >
-                        <nav className="flex flex-col gap-1.5">
+                        <div className="flex justify-end p-4">
+                            <button
+                                onClick={() => setIsMenuOpen(false)}
+                                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                                aria-label="Chiudi menu"
+                            >
+                                <svg className="w-6 h-6 text-[#003B7E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <nav className="flex flex-col gap-2 px-4 pt-2 pb-6 h-[calc(100vh-80px)] overflow-y-auto">
                             {navLinks.map((link) => (
                                 <Link 
                                     key={link.href}
-                                    className="px-4 py-2.5 rounded-full text-[#003B7E]/90 transition-all duration-200
-                                             hover:bg-white/60 hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)]
-                                             active:bg-white/70 active:shadow-[inset_0_3px_7px_rgba(0,0,0,0.15)]
-                                             hover:text-[#003B7E] text-[15px] font-medium relative group focus:outline-none focus:ring-2 focus:ring-[#003B7E] focus:ring-offset-2" 
+                                    className="px-4 py-3 rounded-xl text-[#003B7E]/90 text-lg font-medium
+                                             hover:bg-gray-100 active:bg-gray-200 transition-colors"
                                     href={link.href}
                                     onClick={() => setIsMenuOpen(false)}
                                     role="menuitem"
                                 >
                                     {link.text}
-                                    <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#40BFEF] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100" 
-                                          aria-hidden="true" />
                                 </Link>
                             ))}
-                            <div className="mt-1.5">
+                            <div className="mt-4">
                                 <Link href="/contatti" role="menuitem">
-                                    <Button text="Contattaci" className="w-full" />
+                                    <Button 
+                                        text="Contattaci"
+                                        className="w-full text-lg py-6 bg-[#003B7E] text-white hover:bg-[#003B7E]/90"
+                                    />
                                 </Link>
                             </div>
                         </nav>

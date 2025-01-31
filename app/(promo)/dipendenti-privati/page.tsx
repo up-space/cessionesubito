@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { containerVariants, itemVariants } from '../../constants/animations';
-import { Check, ArrowDown, Euro, Calendar, FileText, Percent } from 'lucide-react';
+import { Check, ArrowDown, Euro, Calendar, FileText, Percent, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -81,7 +81,7 @@ export default function PromoPage() {
                   >
                     <Link href="/dipendenti-privati/preventivo">
                       Richiedi Preventivo Gratuito
-                      <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform duration-500" />
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform duration-500" />
                     </Link>
                   </Button>
                 </motion.div>
