@@ -130,7 +130,7 @@ function Hero() {
               transition={{ duration: 0.6, delay: 0.7 }}
             >
               <Link href="/contatti">
-                <Button text="Richiedi un preventivo" className="hover:scale-105 transition-transform duration-300" />
+                <Button text="Scopri ora" className="hover:scale-105 transition-transform duration-300" />
               </Link>
             </motion.div>
 
