@@ -13,7 +13,7 @@ import { useContactForm } from '@/app/hooks/useContactForm';
 import { COMPANY_INFO } from '@/app/lib/constants';
 
 //! Specific amounts for dipendenti-privati
-const amounts = ['5.000', '10.000', '15.000', '20.000', '25.000', '30.000'];
+const amounts = ['10.000', '20.000', '30.000', '40.000', '50.000', '60.000'];
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -308,4 +308,4 @@ export default function QuotationPage() {
       </main>
     </div>
   );
-} 
+}

@@ -59,13 +59,14 @@ export const sharedStyles = `
   .button {
     display: inline-block;
     padding: 12px 24px;
-    background: #2A3342;
+    background: #40BFEF;
     color: #ffffff;
     text-decoration: none;
     border-radius: 9999px;
     font-weight: 500;
     font-size: 16px;
     border: 0;
+    transition: background-color 0.3s ease;
   }
 `;
 
@@ -309,4 +310,4 @@ export const contactUserTemplate = () => `
     </div>
   </body>
   </html>
-`; 
+`;

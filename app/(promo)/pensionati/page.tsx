@@ -65,8 +65,8 @@ export default function PromoPage() {
                 <motion.div 
                   variants={itemVariants}
                   className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start
-                            fixed md:static bottom-0 left-0 right-0 z-50 px-4 pb-4
-                            bg-gradient-to-t from-white/30 backdrop-blur-sm md:bg-none"
+                            fixed md:static bottom-0 left-0 right-0 z-50 px-4 pb-6 sm:pb-8
+                            bg-gradient-to-t from-white/20 backdrop-blur-[2px] md:bg-none"
                 >
                   <Button
                     asChild
@@ -123,6 +123,16 @@ export default function PromoPage() {
                 </motion.div>
               ))}
             </motion.div>
+
+            {/* Disclaimer */}
+            <motion.div
+              variants={itemVariants}
+              className="mt-8 text-center"
+            >
+              <p className="text-white/70 text-sm bg-white/5 backdrop-blur-sm inline-block px-6 py-3 rounded-xl">
+                * La promozione zero spese e zero commissioni è applicabile ad operazioni con una durata minima di 84 mesi
+              </p>
+            </motion.div>
           </motion.div>
         </section>
         </Suspense>
@@ -131,4 +141,4 @@ export default function PromoPage() {
       <Footer />
     </div>
   );
-} 
+}
