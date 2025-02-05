@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Euro, User } from 'lucide-react';
+import { ArrowLeft, Euro, User, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { OptimizedImage } from '@/app/components/ui/optimized-image';
 import { useRouter } from 'next/navigation';
@@ -118,13 +118,15 @@ export default function QuotationPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [amount, setAmount] = useState('');
-  const { formData, handleChange, handleSubmit, isLoading, isSuccess } = useContactForm();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const { formData, handleChange } = useContactForm();
 
   const handleQuotationSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     
     try {
-      // First send the email
       const emailResponse = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -145,12 +147,11 @@ export default function QuotationPage() {
         throw new Error('Errore durante l\'invio del messaggio');
       }
 
-      // Then handle the form submission through the hook
-      await handleSubmit(e);
-
+      setIsSuccess(true);
     } catch (error) {
       console.error('Error:', error);
-      // You might want to show an error message to the user here
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -246,9 +247,16 @@ export default function QuotationPage() {
                     size="lg"
                     onClick={handleQuotationSubmit}
                     disabled={isLoading || !formData.name || !formData.email || !formData.phone || !formData.privacy}
-                    className="w-full max-w-2xl mx-auto rounded-3xl text-lg hover:bg-secondary/90"
+                    className="w-full max-w-2xl mx-auto rounded-3xl text-lg hover:bg-secondary/90 relative"
                   >
-                    {isLoading ? 'Invio in corso...' : 'Richiedi Preventivo'}
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Invio in corso...
+                      </>
+                    ) : (
+                      'Richiedi Preventivo'
+                    )}
                   </Button>
                   <Button
                     variant="ghost"
@@ -267,23 +275,27 @@ export default function QuotationPage() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="absolute inset-0 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg"
+              className="absolute inset-0 flex items-center justify-center bg-[#003B7E]/95 backdrop-blur-md rounded-3xl"
             >
-              <div className="text-center p-6">
+              <div className="text-center p-8 max-w-md mx-auto">
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="w-16 h-16 bg-[#40BFEF] rounded-full flex items-center justify-center mx-auto mb-6"
+                  className="w-20 h-20 bg-[#40BFEF] rounded-full flex items-center justify-center mx-auto mb-8"
                 >
-                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </motion.div>
-                <h3 className="text-2xl font-medium text-white mb-4">Richiesta Inviata!</h3>
-                <p className="text-white/80 mb-6">Ti contatteremo presto per discutere la tua richiesta.</p>
-                <Button asChild>
-                  <Link href="/" className="bg-[#40BFEF] hover:bg-[#35a5d3] text-white shadow-lg shadow-[#40BFEF]/20">
+                <h3 className="text-3xl font-bold text-white mb-4">Richiesta Inviata!</h3>
+                <p className="text-white text-lg mb-8">Ti contatteremo presto per discutere la tua richiesta.</p>
+                <Button 
+                  asChild
+                  size="lg"
+                  className="bg-[#40BFEF] hover:bg-[#35a5d3] text-white font-medium px-8 py-6 rounded-full shadow-lg shadow-[#40BFEF]/20"
+                >
+                  <Link href="/">
                     Torna alla Home
                   </Link>
                 </Button>

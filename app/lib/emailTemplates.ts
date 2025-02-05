@@ -60,7 +60,7 @@ export const sharedStyles = `
     display: inline-block;
     padding: 12px 24px;
     background: #40BFEF;
-    color: #ffffff;
+    color: #ffffff !important;
     text-decoration: none;
     border-radius: 9999px;
     font-weight: 500;
@@ -110,7 +110,7 @@ export const adminTemplate = (formData: any) => `
           <div class="email-card">
             <div class="header">
               <div class="logo">
-                <img src="/full-logo.png" alt="CessioneSubito" />
+                <img src="https://cessionesubito.it/full-logo.png" alt="CessioneSubito" />
               </div>
               <h1 class="header-title">Nuova Richiesta di Preventivo</h1>
             </div>
@@ -234,7 +234,7 @@ export const userTemplate = (formData: any) => `
           <div class="email-card">
             <div class="header">
               <div class="logo">
-                <img src="/full-logo.png" alt="CessioneSubito" />
+                <img src="https://cessionesubito.it/full-logo.png" alt="CessioneSubito" />
               </div>
               <h1 class="header-title">Richiesta Ricevuta</h1>
             </div>
@@ -258,9 +258,8 @@ export const userTemplate = (formData: any) => `
               
               <div class="cta-section">
                 <p class="cta-text">
-                  Ti contatteremo presto per discutere i dettagli della tua richiesta. Nel frattempo, se hai domande o necessiti di assistenza immediata, siamo qui per aiutarti.
+                  Ti contatteremo al più presto per discutere i dettagli della tua richiesta e fornirti tutte le informazioni necessarie.
                 </p>
-                <a href="/contatti" class="button">Contattaci</a>
               </div>
             </div>
             
@@ -281,33 +280,132 @@ export const userTemplate = (formData: any) => `
 export const contactAdminTemplate = (formData: any) => `
   <!DOCTYPE html>
   <html>
-  <head>
-    <style>
-      /* Add contact-specific email styles */
-      .message-content { padding: 20px; background: #f5f5f5; }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h2>Nuovo messaggio da ${formData.name}</h2>
-      <div class="message-content">
-        <p>Email: ${formData.email}</p>
-        <p>Telefono: ${formData.phone}</p>
-        <p>Messaggio: ${formData.message}</p>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Nuovo Messaggio dal Sito</title>
+      <style>
+        ${sharedStyles}
+        .info-group {
+          padding: 16px 0;
+          border-bottom: 1px solid #edf2f7;
+        }
+        .info-group:last-child {
+          border-bottom: none;
+        }
+        .label {
+          font-size: 14px;
+          color: #64748b;
+          margin-bottom: 4px;
+          display: block;
+        }
+        .value {
+          font-size: 16px;
+          color: #1a1a1a;
+          font-weight: 500;
+        }
+        .message-content {
+          font-size: 16px;
+          line-height: 1.7;
+          color: #475569;
+          background: #f8fafc;
+          border-radius: 16px;
+          padding: 20px;
+          margin-top: 16px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="main-wrapper">
+        <div class="container">
+          <div class="email-card">
+            <div class="header">
+              <div class="logo">
+                <img src="https://cessionesubito.it/full-logo.png" alt="CessioneSubito" />
+              </div>
+              <h1 class="header-title">Nuovo Messaggio dal Sito</h1>
+            </div>
+            <div class="content">
+              <div class="info-group">
+                <span class="label">Nome e Cognome</span>
+                <div class="value">${formData.name}</div>
+              </div>
+              <div class="info-group">
+                <span class="label">Email</span>
+                <div class="value">${formData.email}</div>
+              </div>
+              <div class="info-group">
+                <span class="label">Telefono</span>
+                <div class="value">${formData.phone}</div>
+              </div>
+              <div class="message-content">
+                ${formData.message}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </body>
+    </body>
   </html>
 `;
 
 export const contactUserTemplate = () => `
   <!DOCTYPE html>
   <html>
-  <body>
-    <div class="container">
-      <h2>Grazie per averci contattato</h2>
-      <p>Il nostro team ti risponderà entro 24 ore lavorative.</p>
-    </div>
-  </body>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Messaggio Ricevuto - CessioneSubito</title>
+      <style>
+        ${sharedStyles}
+        .message {
+          font-size: 16px;
+          line-height: 1.7;
+          color: #475569;
+          margin-bottom: 32px;
+        }
+        .footer {
+          text-align: center;
+          padding: 24px;
+          background: #f8fafc;
+          border-top: 1px solid #edf2f7;
+        }
+        .footer-brand {
+          font-weight: 600;
+          color: #1a1a1a;
+          margin-bottom: 12px;
+          font-size: 16px;
+        }
+        .footer-note {
+          font-size: 13px;
+          color: #64748b;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="main-wrapper">
+        <div class="container">
+          <div class="email-card">
+            <div class="header">
+              <div class="logo">
+                <img src="https://cessionesubito.it/full-logo.png" alt="CessioneSubito" />
+              </div>
+              <h1 class="header-title">Messaggio Ricevuto</h1>
+            </div>
+            <div class="content">
+              <p class="message">
+                Grazie per averci contattato. Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto.
+              </p>
+            </div>
+            <div class="footer">
+              <p class="footer-brand">Il team di CessioneSubito</p>
+              <p class="footer-note">
+                Questa è un'email automatica. Per favore non rispondere a questo indirizzo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
   </html>
 `;
