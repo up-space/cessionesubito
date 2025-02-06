@@ -40,18 +40,11 @@ transporter.verify(function(error, success) {
 export async function POST(req: Request) {
   try {
     const { to, subject, formData, skipUserEmail } = await req.json();
-    console.log('Richiesta ricevuta:', { to, subject, hasFormData: !!formData, skipUserEmail });
-
-    if (!process.env.EMAIL_USER) {
-      throw new Error('EMAIL_USER environment variable is not set');
-    }
-
     const isContactForm = !formData.amount;
-    console.log('Tipo form:', isContactForm ? 'contatto' : 'preventivo');
 
     // Send email to admin
     try {
-      const adminMailResult = await transporter.sendMail({
+      await transporter.sendMail({
         from: {
           name: "CessioneSubito",
           address: "postmaster@cessionesubito.it"
@@ -62,16 +55,14 @@ export async function POST(req: Request) {
           contactAdminTemplate(formData) : 
           adminTemplate(formData)
       });
-      console.log('Email admin inviata:', adminMailResult);
-    } catch (adminError) {
-      console.error('Errore invio email admin:', adminError);
-      throw adminError;
+    } catch (error) {
+      throw error;
     }
 
     // Invia l'email all'utente solo se ha fornito un'email e non è stato richiesto di saltare l'invio
     if (formData.email && !skipUserEmail) {
       try {
-        const userMailResult = await transporter.sendMail({
+        await transporter.sendMail({
           from: {
             name: "CessioneSubito",
             address: "postmaster@cessionesubito.it"
@@ -80,16 +71,13 @@ export async function POST(req: Request) {
           subject: 'Conferma ricezione richiesta - CessioneSubito',
           html: isContactForm ? contactUserTemplate() : userTemplate(formData)
         });
-        console.log('Email utente inviata:', userMailResult);
-      } catch (userError) {
-        console.error('Errore invio email utente:', userError);
-        throw userError;
+      } catch (error) {
+        throw error;
       }
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Errore generale invio email:', error);
     return NextResponse.json(
       { error: String(error) },
       { status: 500 }
