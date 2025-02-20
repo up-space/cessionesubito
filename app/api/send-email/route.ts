@@ -49,7 +49,7 @@ export async function POST(req: Request) {
           name: "CessioneSubito",
           address: "postmaster@cessionesubito.it"
         },
-        to: "info@cessionesubito.it",
+        to: "landingleads@fidiline.it",
         subject: isContactForm ? 'Nuovo messaggio dal sito' : subject,
         html: isContactForm ? 
           contactAdminTemplate(formData) : 
