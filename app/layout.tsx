@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react"
 import CookieBanner from './components/shared/CookieBanner';
 import { COMPANY_INFO } from './lib/constants';
 import { JsonLd } from './components/shared/JsonLd';
+import Script from 'next/script';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -98,6 +99,29 @@ export default function RootLayout({
         <meta name="geo.placename" content="Milano" />
         <meta name="geo.position" content="45.4668;9.1905" />
         <meta name="ICBM" content="45.4668, 9.1905" />
+        <Script
+          id="fb-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','607683642137864');fbq('track','PageView');`
+          }}
+        />
+        <Script
+          id="disable-console-logs"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: "if (process.env.NODE_ENV === 'production') { console.log = function() {}; console.warn = function() {}; console.error = function() {}; }"
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{display:'none'}}
+            src="https://www.facebook.com/tr?id=607683642137864&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
       </head>
       <body className="antialiased">
         <JsonLd 

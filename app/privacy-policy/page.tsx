@@ -113,9 +113,11 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-semibold text-[#003B7E] mb-4">Trasferimento dei Dati</h2>
             <p className="mb-4">
-              I tuoi dati personali potrebbero essere trasferiti e conservati in paesi al di fuori dell'Unione Europea. 
-              In tal caso, ci assicuriamo che il trasferimento avvenga nel rispetto delle leggi applicabili sulla 
-              protezione dei dati e che siano in atto adeguate misure di sicurezza.
+              I tuoi dati personali potrebbero essere trasferiti e conservati in paesi al di fuori dell'Unione Europea.
+              Condividiamo dati con Meta Platforms Ireland Limited attraverso il Meta Pixel (ID: 607683642137864)
+              per misurare le performance degli annunci e personalizzare contenuti pubblicitari in base alle tue
+              interazioni col sito. Questo trasferimento avviene nel rispetto del GDPR e utilizzando le clausole
+              contrattuali standard della Commissione Europea.
             </p>
           </section>
 
@@ -148,4 +150,4 @@ export default function PrivacyPolicy() {
       </div>
     </main>
   );
-} 
+}
