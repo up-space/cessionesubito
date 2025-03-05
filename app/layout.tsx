@@ -110,7 +110,7 @@ export default function RootLayout({
           id="disable-console-logs"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: "if (process.env.NODE_ENV === 'production') { console.log = function() {}; console.warn = function() {}; console.error = function() {}; }"
+            __html: "if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_NODE_ENV === 'production') { console.log = function() {}; console.warn = function() {}; console.error = function() {}; }"
           }}
         />
         <noscript>
