@@ -38,6 +38,11 @@ transporter.verify(function(error, success) {
 });
 
 export async function POST(req: Request) {
+  if (process.env.NODE_ENV === 'production') {
+    console.log = function() {};
+    console.warn = function() {};
+    console.error = function() {};
+  }
   try {
     const { to, subject, formData, skipUserEmail } = await req.json();
     const isContactForm = !formData.amount;
@@ -83,4 +88,4 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
-} 
+}
